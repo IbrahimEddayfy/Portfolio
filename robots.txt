@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# A Sitemap line will be added here once a real production domain is configured.

@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <title>404 - Page Not Found | Ibrahim Eddayfy</title>
+
+    <meta name="robots" content="noindex">
+
+    <link rel="icon" href="logo/brahim%20eddayfy%20portfolio%20logo.png">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           404 PAGE
+        ========================================= */
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow: hidden;
+
+            background: #04123ff9;
+            color: #04123ff9;
+
+            font-family:
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+        }
+
+
+        /* =========================================
+           BACKGROUND
+        ========================================= */
+
+        .error-page {
+            position: relative;
+
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            isolation: isolate;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(130, 131, 172, 0.16),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(198, 9, 9, 0.1),
+                    transparent 30%
+                ),
+                #04012df9;
+        }
+
+
+        /* Subtle technical grid */
+
+        .error-page::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            z-index: -2;
+
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(
+                    rgba(195, 12, 12, 0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(231, 28, 28, 0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 42px 42px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    rgb(189, 141, 9),
+                    transparent 90%
+                );
+        }
+
+
+        /* Blue ambient light */
+
+        .error-page::after {
+            content: "";
+
+            position: absolute;
+
+            width: 520px;
+            height: 520px;
+
+            left: -180px;
+            top: -180px;
+
+            z-index: -1;
+
+            border-radius: 50%;
+
+            background: #eb8525;
+
+            filter: blur(150px);
+
+            opacity: 0.18;
+
+            pointer-events: none;
+
+            animation:
+                ambientBlue 12s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes ambientBlue {
+
+            from {
+                transform: translate3d(0, 0, 0);
+            }
+
+            to {
+                transform: translate3d(120px, 80px, 0);
+            }
+
+        }
+
+
+        /* =========================================
+           GOLD AMBIENT ORB
+        ========================================= */
+
+        .gold-glow {
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            right: -180px;
+            bottom: -180px;
+
+            z-index: -1;
+
+            border-radius: 50%;
+
+            background: #37d480;
+
+            filter: blur(150px);
+
+            opacity: 0.10;
+
+            pointer-events: none;
+
+            animation:
+                ambientGold 15s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes ambientGold {
+
+            from {
+                transform: translate3d(0, 0, 0);
+            }
+
+            to {
+                transform: translate3d(-100px, -70px, 0);
+            }
+
+        }
+
+
+        /* =========================================
+           MAIN ERROR CARD
+        ========================================= */
+
+        .error-card {
+
+            position: relative;
+
+            width: min(720px, 100%);
+
+            padding:
+                clamp(40px, 7vw, 80px)
+                clamp(25px, 6vw, 70px);
+
+            text-align: center;
+
+            border-radius: 32px;
+
+            border:
+                1px solid rgba(255,255,255,0.10);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.075),
+                    rgba(255,255,255,0.025)
+                );
+
+            box-shadow:
+                0 30px 100px rgba(0,0,0,0.50),
+                inset 0 1px 0 rgba(255,255,255,0.06);
+
+            backdrop-filter: blur(24px);
+
+            -webkit-backdrop-filter: blur(24px);
+
+            animation:
+                cardAppear 0.8s ease both;
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+
+        /* =========================================
+           SMALL LABEL
+        ========================================= */
+
+        .error-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-bottom: 22px;
+
+            color: #ebebef;
+
+            font-size: 0.75rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.16em;
+
+            text-transform: uppercase;
+        }
+
+
+        .error-label::before {
+
+            content: "";
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #c9f24a;
+
+            box-shadow:
+                0 0 14px rgba(201,242,74,0.7);
+        }
+
+
+        /* =========================================
+           404 NUMBER
+        ========================================= */
+
+        .error-number {
+
+            margin: 0;
+
+            font-size:
+                clamp(7rem, 22vw, 12rem);
+
+            line-height: 0.85;
+
+            font-weight: 900;
+
+            letter-spacing: -0.08em;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e40000 10%,
+                    #a32208 48%,
+                    #4f0431 90%
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+            filter:
+                drop-shadow(
+                    0 15px 35px
+                    rgba(179, 184, 194, 0.18)
+                );
+        }
+
+
+        /* =========================================
+           TITLE
+        ========================================= */
+
+        .error-title {
+
+            margin:
+                30px 0 14px;
+
+            color: #09b21c;
+
+            font-size:
+                clamp(1.7rem, 4vw, 2.5rem);
+
+            line-height: 1.15;
+
+            letter-spacing: -0.03em;
+        }
+
+
+        /* =========================================
+           DESCRIPTION
+        ========================================= */
+
+        .error-description {
+
+            max-width: 520px;
+
+            margin:
+                0 auto 35px;
+
+            color:
+                rgba(94, 234, 132, 0.9);
+
+            font-size:
+                clamp(0.95rem, 2vw, 1.05rem);
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           HOME BUTTON
+        ========================================= */
+
+        .error-home {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            min-height: 52px;
+
+            padding:
+                0 28px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #569113,
+                    #d80b0b
+                );
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            box-shadow:
+                0 12px 35px
+                rgba(175, 179, 187, 0.25);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .error-home:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 18px 45px
+                rgba(37,99,235,0.38);
+        }
+
+
+        /* =========================================
+           BRAND
+        ========================================= */
+
+        .error-brand {
+
+            margin-top: 38px;
+
+            color:
+                rgba(255,255,255,0.55);
+
+            font-size: 0.72rem;
+
+            font-weight: 700;
+
+            letter-spacing: 0.18em;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .error-page {
+
+                padding: 18px;
+            }
+
+            .error-card {
+
+                border-radius: 24px;
+
+                padding:
+                    45px 22px;
+            }
+
+            .error-title {
+
+                margin-top: 24px;
+            }
+
+            .error-description {
+
+                font-size: 0.95rem;
+            }
+
+            .error-home {
+
+                width: 100%;
+            }
+
+        }
+
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .error-page::after,
+            .gold-glow,
+            .error-card {
+
+                animation: none;
+            }
+
+            .error-home {
+
+                transition: none;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <main class="error-page">
+
+        <div
+            class="gold-glow"
+            aria-hidden="true">
+        </div>
+
+
+        <section
+            class="error-card"
+            aria-labelledby="error-title">
+
+
+            <div class="error-label">
+                Navigation Error
+            </div>
+
+
+            <div
+                class="error-number"
+                aria-hidden="true">
+
+                404
+
+            </div>
+
+
+            <h1
+                id="error-title"
+                class="error-title">
+
+                Page Not Found
+
+            </h1>
+
+
+            <p class="error-description">
+
+                The page you're looking for doesn't exist,
+                has been moved, or the link may be incorrect.
+
+            </p>
+
+
+            <a
+                href="index.html"
+                class="error-home">
+
+                <span>Return to Homepage</span>
+
+                <span aria-hidden="true">→</span>
+
+            </a>
+
+
+            <div class="error-brand">
+
+                Ibrahim Eddayfy · SEO & Web Development
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</body>
+</html>
