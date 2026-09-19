@@ -70,6 +70,7 @@
 }
 
 html {
+    background: #02060d;
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
     max-width: 100%;
@@ -87,7 +88,7 @@ body {
         Arial,
         sans-serif;
 
-    background: var(--white);
+    background: #07111f;
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
@@ -556,7 +557,7 @@ h2 {
 
     align-items: center;
 
-    text-align: center;
+    text-align: left;
 
     gap: 70px;
 
@@ -631,7 +632,7 @@ h2 {
     position: relative;
     z-index: 2;
 
-    max-width: 680px;
+    max-width: 920px;
 }
 
 
@@ -785,7 +786,6 @@ h2 {
 .hero-roles {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 10px;
 
     margin-bottom: 18px;
@@ -846,7 +846,6 @@ h2 {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: center;
 
     gap: 15px;
 
@@ -944,7 +943,6 @@ h2 {
 .hero-trust {
     display: flex;
     align-items: center;
-    justify-content: center;
 
     gap: 22px;
 }
@@ -2563,7 +2561,7 @@ footer p {
 }
 
 .hero-content {
-    max-width: 720px;
+    max-width: 920px;
     padding: 0;
 }
 
